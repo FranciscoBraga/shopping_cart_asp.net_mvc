@@ -11,5 +11,7 @@ namespace SCM_DataLayer.DataContext
         }
 
         public DbSet<Cart> Cart { get; set; }
+        public DbSet<CartItem> CartItem { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }

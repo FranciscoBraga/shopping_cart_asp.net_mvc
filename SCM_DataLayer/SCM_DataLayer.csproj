@@ -49,9 +49,15 @@
   <ItemGroup>
     <Compile Include="DataContext\DataDbContext.cs" />
     <Compile Include="DataEntity\Cart.cs" />
+    <Compile Include="DataEntity\CartItem.cs" />
+    <Compile Include="DataEntity\Product.cs" />
     <Compile Include="Migrations\201901261925339_Initial.cs" />
     <Compile Include="Migrations\201901261925339_Initial.Designer.cs">
       <DependentUpon>201901261925339_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901271533417_RelationshipBetweenEntities.cs" />
+    <Compile Include="Migrations\201901271533417_RelationshipBetweenEntities.Designer.cs">
+      <DependentUpon>201901271533417_RelationshipBetweenEntities.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +69,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901261925339_Initial.resx">
       <DependentUpon>201901261925339_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901271533417_RelationshipBetweenEntities.resx">
+      <DependentUpon>201901271533417_RelationshipBetweenEntities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
