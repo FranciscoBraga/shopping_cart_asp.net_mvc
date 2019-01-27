@@ -51,6 +51,7 @@
     <Compile Include="DataEntity\Cart.cs" />
     <Compile Include="DataEntity\CartItem.cs" />
     <Compile Include="DataEntity\Product.cs" />
+    <Compile Include="DataGenericRepository\IGenericReppsitory.cs" />
     <Compile Include="Migrations\201901261925339_Initial.cs" />
     <Compile Include="Migrations\201901261925339_Initial.Designer.cs">
       <DependentUpon>201901261925339_Initial.cs</DependentUpon>
