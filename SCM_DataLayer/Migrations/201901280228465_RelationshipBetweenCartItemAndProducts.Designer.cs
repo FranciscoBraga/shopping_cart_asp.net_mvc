@@ -7,13 +7,13 @@ namespace SCM_DataLayer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class RelationshipBetweenEntities : IMigrationMetadata
+    public sealed partial class RelationshipBetweenCartItemAndProducts : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RelationshipBetweenEntities));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RelationshipBetweenCartItemAndProducts));
         
         string IMigrationMetadata.Id
         {
-            get { return "201901271533417_RelationshipBetweenEntities"; }
+            get { return "201901280228465_RelationshipBetweenCartItemAndProducts"; }
         }
         
         string IMigrationMetadata.Source

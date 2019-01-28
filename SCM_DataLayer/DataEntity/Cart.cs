@@ -10,6 +10,6 @@ namespace SCM_DataLayer.DataEntity
     {
         public int Id { get; set; }
         public DateTime DateAndTime { get; set; }
-        public ICollection<CartItem> CartItems { get; set; }
+        public virtual ICollection<CartItem> CartItems { get; set; }
     }
 }

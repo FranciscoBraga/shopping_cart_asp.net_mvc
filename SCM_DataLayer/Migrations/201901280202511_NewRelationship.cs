@@ -3,7 +3,7 @@ namespace SCM_DataLayer.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class RelationshipBetweenEntities : DbMigration
+    public partial class NewRelationship : DbMigration
     {
         public override void Up()
         {
@@ -14,33 +14,29 @@ namespace SCM_DataLayer.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Amount = c.Int(nullable: false),
-                        IdCart = c.Int(nullable: false),
+                        Cart_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Cart", t => t.IdCart, cascadeDelete: true)
-                .Index(t => t.IdCart);
+                .ForeignKey("dbo.Cart", t => t.Cart_Id)
+                .Index(t => t.Cart_Id);
             
             CreateTable(
                 "dbo.Product",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         Weight = c.Double(nullable: false),
                         Price = c.Double(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.CartItem", t => t.Id)
-                .Index(t => t.Id);
+                .PrimaryKey(t => t.Id);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Product", "Id", "dbo.CartItem");
-            DropForeignKey("dbo.CartItem", "IdCart", "dbo.Cart");
-            DropIndex("dbo.Product", new[] { "Id" });
-            DropIndex("dbo.CartItem", new[] { "IdCart" });
+            DropForeignKey("dbo.CartItem", "Cart_Id", "dbo.Cart");
+            DropIndex("dbo.CartItem", new[] { "Cart_Id" });
             DropTable("dbo.Product");
             DropTable("dbo.CartItem");
             RenameTable(name: "dbo.Cart", newName: "Carts");
