@@ -53,6 +53,8 @@
     <Compile Include="DataEntity\Product.cs" />
     <Compile Include="DataGenericRepository\GenericRepository.cs" />
     <Compile Include="DataGenericRepository\IGenericRepository.cs" />
+    <Compile Include="DataRepositoryImplementation\CartRepositoryImplementation.cs" />
+    <Compile Include="DataRepositoryImplementation\ICartRepositoyImplementation.cs" />
     <Compile Include="DataRepositoryImplementation\IProductRepositoryImplementation.cs" />
     <Compile Include="DataRepositoryImplementation\ProductRepositoryImplementation.cs" />
     <Compile Include="Migrations\201901261925339_Initial.cs" />
