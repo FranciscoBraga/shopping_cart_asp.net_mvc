@@ -25,7 +25,7 @@ namespace SCM_ApplicationLayer.ApplicationImplementation
                 }
                 else
                 {
-                    return CartItemRI.Get(c=>c.Id ==ID).ToList();
+                    return CartItemRI.Get(c=>c.CartItemId ==ID).ToList();
                 }
             }
             catch (Exception Ex)

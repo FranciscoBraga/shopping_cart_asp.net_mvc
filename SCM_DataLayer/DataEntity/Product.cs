@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 
 namespace SCM_DataLayer.DataEntity
@@ -7,11 +8,14 @@ namespace SCM_DataLayer.DataEntity
     [Table("Product")]
     public class Product
     {
-        public int Id { get; set; }
+       
+        [Key]
+        public int ProductId { get; set; }
         public string  Name { get; set; }
         public double Weight { get; set; }
         public double Price { get; set; }
-        public CartItem CartItem { get; set; }
+
+        public virtual ICollection<CartItem> CartItems { get; set; } 
 
 
     }

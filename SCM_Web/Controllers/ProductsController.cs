@@ -8,19 +8,17 @@ using System.Web;
 using System.Web.Mvc;
 using SCM_DataLayer.DataContext;
 using SCM_DataLayer.DataEntity;
-using SCM_ApplicationLayer.ApplicationImplementation;
 
 namespace SCM_Web.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly ProductImplementation ProductImp = new ProductImplementation();
+        private DataDbContext db = new DataDbContext();
 
         // GET: Products
         public ActionResult Index()
         {
-            var products = ProductImp.GetProduct();
-            return View(products);
+            return View(db.Products.ToList());
         }
 
         // GET: Products/Details/5
@@ -30,7 +28,7 @@ namespace SCM_Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = ProductImp.Find(id);
+            Product product = db.Products.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -41,8 +39,6 @@ namespace SCM_Web.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
-
-        
             return View();
         }
 
@@ -51,16 +47,15 @@ namespace SCM_Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Weight,Price")] Product product)
+        public ActionResult Create([Bind(Include = "ProductId,Name,Weight,Price")] Product product)
         {
             if (ModelState.IsValid)
             {
-
-                ProductImp.AddProduct(product);
+                db.Products.Add(product);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-        
             return View(product);
         }
 
@@ -71,12 +66,11 @@ namespace SCM_Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = ProductImp.Find(id);
+            Product product = db.Products.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
             }
-         
             return View(product);
         }
 
@@ -85,14 +79,14 @@ namespace SCM_Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Weight,Price")] Product product)
+        public ActionResult Edit([Bind(Include = "ProductId,Name,Weight,Price")] Product product)
         {
             if (ModelState.IsValid)
             {
-                ProductImp.UpdateProduct(product);
+                db.Entry(product).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-     ;
             return View(product);
         }
 
@@ -103,7 +97,7 @@ namespace SCM_Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = ProductImp.Find(id);
+            Product product = db.Products.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -116,11 +110,19 @@ namespace SCM_Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = ProductImp.Find(id);
-            ProductImp.RemoveProduct(product);
-           
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }

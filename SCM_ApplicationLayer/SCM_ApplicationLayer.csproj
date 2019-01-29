@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationImplementation\CartImplementation.cs" />
+    <Compile Include="ApplicationImplementation\CartItemImplementation.cs" />
     <Compile Include="ApplicationImplementation\ProductImplementation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -26,7 +26,7 @@ namespace SCM_ApplicationLayer.ApplicationImplementation
                 }
                 else
                 {
-                    return ProductRI.Get(p => p.Id == ID).ToList();
+                    return ProductRI.Get(p => p.ProductId == ID).ToList();
                 }
             }
             catch(Exception ex)

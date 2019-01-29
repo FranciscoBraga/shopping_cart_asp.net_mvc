@@ -7,13 +7,13 @@ namespace SCM_DataLayer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Initial : IMigrationMetadata
+    public sealed partial class newRelationship : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(newRelationship));
         
         string IMigrationMetadata.Id
         {
-            get { return "201901261925339_Initial"; }
+            get { return "201901291353308_newRelationship"; }
         }
         
         string IMigrationMetadata.Source

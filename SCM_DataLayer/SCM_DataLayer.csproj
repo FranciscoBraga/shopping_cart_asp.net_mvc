@@ -53,25 +53,19 @@
     <Compile Include="DataEntity\Product.cs" />
     <Compile Include="DataGenericRepository\GenericRepository.cs" />
     <Compile Include="DataGenericRepository\IGenericRepository.cs" />
+    <Compile Include="DataRepositoryImplementation\CartItemRepositoryImplementation.cs" />
+    <Compile Include="DataRepositoryImplementation\ICarItemRepositoryImplementation.cs" />
     <Compile Include="DataRepositoryImplementation\CartRepositoryImplementation.cs" />
     <Compile Include="DataRepositoryImplementation\ICartRepositoyImplementation.cs" />
     <Compile Include="DataRepositoryImplementation\IProductRepositoryImplementation.cs" />
     <Compile Include="DataRepositoryImplementation\ProductRepositoryImplementation.cs" />
-    <Compile Include="Migrations\201901261925339_Initial.cs" />
-    <Compile Include="Migrations\201901261925339_Initial.Designer.cs">
-      <DependentUpon>201901261925339_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201901291325091_Initial.cs" />
+    <Compile Include="Migrations\201901291325091_Initial.Designer.cs">
+      <DependentUpon>201901291325091_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901280202511_NewRelationship.cs" />
-    <Compile Include="Migrations\201901280202511_NewRelationship.Designer.cs">
-      <DependentUpon>201901280202511_NewRelationship.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901280210396_RelationshipCartItemAndCart.cs" />
-    <Compile Include="Migrations\201901280210396_RelationshipCartItemAndCart.Designer.cs">
-      <DependentUpon>201901280210396_RelationshipCartItemAndCart.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901280228465_RelationshipBetweenCartItemAndProducts.cs" />
-    <Compile Include="Migrations\201901280228465_RelationshipBetweenCartItemAndProducts.Designer.cs">
-      <DependentUpon>201901280228465_RelationshipBetweenCartItemAndProducts.cs</DependentUpon>
+    <Compile Include="Migrations\201901291353308_newRelationship.cs" />
+    <Compile Include="Migrations\201901291353308_newRelationship.Designer.cs">
+      <DependentUpon>201901291353308_newRelationship.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,19 +75,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901261925339_Initial.resx">
-      <DependentUpon>201901261925339_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901291325091_Initial.resx">
+      <DependentUpon>201901291325091_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901280202511_NewRelationship.resx">
-      <DependentUpon>201901280202511_NewRelationship.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901280210396_RelationshipCartItemAndCart.resx">
-      <DependentUpon>201901280210396_RelationshipCartItemAndCart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901280228465_RelationshipBetweenCartItemAndProducts.resx">
-      <DependentUpon>201901280228465_RelationshipBetweenCartItemAndProducts.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901291353308_newRelationship.resx">
+      <DependentUpon>201901291353308_newRelationship.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

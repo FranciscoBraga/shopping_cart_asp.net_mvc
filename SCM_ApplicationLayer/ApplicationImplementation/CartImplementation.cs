@@ -26,7 +26,7 @@ namespace SCM_ApplicationLayer.ApplicationImplementation
                 }
                 else
                 {
-                    return CartRI.Get(c => c.Id == ID).ToList();
+                    return CartRI.Get(c => c.CartId == ID).ToList();
                 }
             }
             catch (Exception  ex)
@@ -47,7 +47,7 @@ namespace SCM_ApplicationLayer.ApplicationImplementation
             }
         }
 
-        public void DelelteCart(Cart cart)
+        public void DeleteCart(Cart cart)
         {
             try
             {
